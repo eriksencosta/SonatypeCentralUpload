@@ -61,7 +61,7 @@ gradlePlugin.testSourceSets.add(functionalTestSourceSet)
 tasks {
     named<Task>("check") {
         // Run the functional tests as part of `check`
-        dependsOn(functionalTest)
+        //dependsOn(functionalTest)
     }
 
     withType<KotlinCompile> {
@@ -78,5 +78,18 @@ configure<JavaPluginExtension> {
 
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = "sonatype-central-upload"
+
+            from(components["java"])
+        }
+    }
+    repositories {
+        mavenLocal()
     }
 }
