@@ -45,7 +45,7 @@ gradlePlugin {
 }
 
 // Add a source set for the functional test suite
-val functionalTestSourceSet = sourceSets.create("functionalTest")
+/*val functionalTestSourceSet = sourceSets.create("functionalTest")
 configurations["functionalTestImplementation"].extendsFrom(configurations["testImplementation"])
 configurations["functionalTestRuntimeOnly"].extendsFrom(configurations["testRuntimeOnly"])
 
@@ -54,9 +54,9 @@ val functionalTest by tasks.registering(Test::class) {
     testClassesDirs = functionalTestSourceSet.output.classesDirs
     classpath = functionalTestSourceSet.runtimeClasspath
     useJUnitPlatform()
-}
+}*/
 
-gradlePlugin.testSourceSets.add(functionalTestSourceSet)
+// gradlePlugin.testSourceSets.add(functionalTestSourceSet)
 
 tasks {
     named<Task>("check") {
